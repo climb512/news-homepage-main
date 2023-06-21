@@ -1,5 +1,5 @@
 :root {
-    --ff-inter: font-family: 'Inter', sans-serif;
+    --ff-inter: 'Inter', sans-serif;
     --fw-reg: 400;
     --fw-semi-bold: 700;
     --fw-bold: 800;
@@ -13,3 +13,72 @@
     --clr-very-dark: hsl(240, 100%, 5%);
 
 }
+body {
+    font-family: var(--ff-inter);
+    background-color: var(--clr-bg);
+}
+
+section {
+    margin: 32px 0;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 1rem;
+}
+
+.logo {
+    width: 3rem;
+}
+
+.nav {
+    display: none;
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content:left;
+    padding: 0 1rem;
+    gap: 1.5rem;
+    margin-top: 0;
+}
+
+.hero-img {
+
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: var(--fw-bold);
+    line-height: 2.5rem;
+    color: var(--clr-very-dark);
+}
+
+.hero-text {
+    font-size: var(--fs-p);
+    color: var(--clr-dark);
+}
+
+.cta {
+    width: 182px;
+    background-color: var(--clr-cta);
+    color: var(--clr-bg);
+    font-size: 14px;
+    font-weight: var(--fw-reg);
+    text-transform: uppercase;
+    letter-spacing: .26rem;
+    min-height: 48px;
+    border: 1px;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0px;
+    touch-action: manipulation;
+}
+
+
+
+
