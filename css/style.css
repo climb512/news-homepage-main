@@ -18,6 +18,12 @@ body {
     background-color: var(--clr-bg);
 }
 
+.flex-container {
+    display:flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 section {
     margin: 32px 0;
 }
@@ -31,7 +37,7 @@ section {
 }
 
 .logo {
-    width: 3rem;
+    width: 2.9rem;
 }
 
 .nav {
@@ -45,10 +51,6 @@ section {
     padding: 0 1rem;
     gap: 1.5rem;
     margin-top: 0;
-}
-
-.hero-img {
-
 }
 
 .hero-title {
@@ -79,6 +81,107 @@ section {
     touch-action: manipulation;
 }
 
+    .latest-posts-section {
+        background-color: var(--clr-very-dark);
+        display: flex;
+        flex-direction: column;
+        justify-content:left;
+        font-size: var(--fs-p);
+        padding: 0 1.2rem;
+        gap: 1.5rem;
+        margin: 1rem;
+        /* margin-top: 3rem; */
+    }
 
+    .latest-posts-headline {
+        font-size: xx-large;
+        color: var(--clr-accent);
+        margin-top: 1rem;
+    }
 
+    .latest-posts-section .post-title {
+        color: var(--clr-bg);
+    }
 
+    .latest-posts-section .post-text {
+        color: var(--clr-light-grey);
+    }
+
+    .latest-posts-section > .post:last-child {
+        padding-bottom: 2rem;
+    }
+
+    .post {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    .post-title {
+
+    }
+
+    .post-text {
+
+    }
+
+    hr {
+        color: var(--clr-dark);
+        height: 1px;
+        margin: 1rem 0;
+    }
+
+.sticky-posts-section {
+    display: flex;
+    flex-direction: column;
+    justify-content:left;
+    font-size: var(--fs-p);
+    gap: 1.5rem;
+    margin: 1rem;
+}
+
+.sticky-post {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 33.33% 33.33% 33.33%;
+    grid-template-areas:" A  B"
+                        " A  C"
+                        " A  D";
+}
+
+.sticky-post-img {
+    grid-area: A;
+}
+
+.sticky-post-number {
+    grid-area: B;
+    color: var(--clr-light-grey);
+    font-size: 2rem;
+    font-weight: var(--fw-semi-bold);
+    padding-left: 25px;
+}
+
+.sticky-post-title {
+    grid-area: C;
+    color: var(--clr-very-dark);
+    font-weight: var(--fw-bold);
+    padding-left: 25px;
+    display:flex;
+    align-items: center;
+    
+}
+
+.sticky-post-text {
+    grid-area: D;
+    color: var(--clr-dark);
+    padding-left: 25px;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
