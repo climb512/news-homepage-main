@@ -9,6 +9,7 @@
     --clr-cta: hsl(5, 85%, 63%);
     --clr-bg: hsl(36, 100%, 99%);
     --clr-light-grey: hsl(233, 8%, 79%);
+    --clr-overlay: hsla(233, 8%, 79%);
     --clr-dark: hsl(236, 13%, 42%);
     --clr-very-dark: hsl(240, 100%, 5%);
 
@@ -17,6 +18,15 @@
 body {
     font-family: var(--ff-inter);
     background-color: var(--clr-bg);
+}
+
+body:has(.nav-toggle:checked) {
+    /* position: fixed; */
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: var(--clr-overlay);
 }
 
 .position-container {
@@ -41,24 +51,61 @@ section {
     width: 56px;
 }
 
+/* -- mobile nav start -- */
 .hamburger {
     display: block;
 }
 
 .nav {
-    display: none;
+    position: absolute;
+    background-color: var(--clr-bg);
+    height: 100%;
+    width: 256px;
+    padding: 26px;
+    text-align:left;
+    top: 72px; 
+    right: 0;
+    transform: scale(0, 1);
+    transform-origin: right;
+    transition: transform 400ms ease-in-out;
 }
 
-li {
+nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+nav li {
     list-style-type: none;
 }
 
-li>a {
+nav a {
     text-decoration: none;
-    color: var(--clr-dark);
-    font-size: 0.875rem;
+    color: var(--clr-very-dark);
+    font-size: 1.1rem;
     font-weight: var(--fw-reg);
+    opacity: 0; /* hides links during menu flyout */
+    transition: opacity 200ms ease-in-out;
 }
+
+nav a:hover, nav a:focus {
+    color: var(--clr-cta);
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle:checked ~ nav {
+    transform: scale(1, 1);
+}
+
+.nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 200ms ease-in-out 200ms;
+}
+/* -- mobile nav end -- */
 
 .hero-section {
     display: flex;
@@ -117,13 +164,14 @@ li>a {
 }
 
 .latest-posts-headline {
-    font-size: xx-large;
+    font-size: 2.5rem;
     color: var(--clr-accent);
     margin-top: 1rem;
 }
 
 .latest-posts-section .post-title {
     color: var(--clr-bg);
+    font-size: 1.3rem;
 }
 
 .latest-posts-section .post-text {
@@ -197,7 +245,6 @@ hr {
         margin: 40px 5%;
     }
 
-    /** resets **/
     section {
         margin: 0;
     }
@@ -211,23 +258,25 @@ hr {
         max-height: 500px;
     }
 
-    .hamburger {
+    .hamburger, .nav-toggle, .nav-toggle-label {
         display: none;
     }
 
     .nav {
+        all: unset; /* nukes the mobile menu styles */
         display: block;
         width: 50%;
+        text-align: center;
     }
 
+    nav a {
+        opacity: 1;
+        color: var(--clr-dark);
+    }
 
     .top-level-nav {
         display: grid;
         grid-auto-flow: column;
-    }
-
-    li {
-        list-style-type: none;
     }
 
     .position-container {
@@ -235,8 +284,8 @@ hr {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 158px;
         grid-template-areas: " hero hero new "
-            " hero hero new "
-            " top  top  top ";
+                             " hero hero new "
+                             " top  top  top ";
     }
 
     .hero-section {
@@ -245,8 +294,8 @@ hr {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: minmax(300px, 1fr) 90px auto;
         grid-template-areas: " img    img "
-            " title  text"
-            " title  btn "
+                             " title  text"
+                             " title  btn "
     }
 
     .hero-image {
@@ -263,7 +312,6 @@ hr {
 
     .hero-text {
         grid-area: text;
-        /* align-self: center; */
         width: 100%;
     }
 
@@ -272,9 +320,17 @@ hr {
         align-self: self-end;
     }
 
+    .hero-button:hover {
+        background-color: var(--clr-very-dark);
+    }
+
     .latest-posts-section {
         grid-area: new;
         margin: 0;
+    }
+
+    .latest-posts-section .post-title:hover {
+        color: var(--clr-accent);
     }
 
     .sticky-posts-section {
@@ -293,8 +349,7 @@ hr {
 
     .sticky-post-title {
         font-size: clamp(var(--fs-p), 1.2rem, 2.5rem);
-        line-height: 3em;
-        /* eliminates line wrapping on clamp */
+        line-height: 3em; /* eliminates line wrapping on clamp */
         align-self: center;
     }
 
@@ -306,12 +361,15 @@ hr {
         -webkit-box-orient: vertical;
     }
 
+    .sticky-post-title:hover {
+        color: var(--clr-cta);
+    }
+
     .sticky-post-text {
         overflow: hidden;
     }
 
-}
-
+} /* end @media */
 
 .attribution {
     font-size: 11px;
