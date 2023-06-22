@@ -140,10 +140,6 @@ li>a {
     gap: .5rem;
 }
 
-.post-title {}
-
-.post-text {}
-
 hr {
     color: var(--clr-dark);
     height: 1px;
@@ -196,9 +192,9 @@ hr {
     padding-left: 25px;
 }
 
-@media screen and (min-width:500px) {
+@media screen and (min-width:800px) {
     body {
-        margin: 40px 138px;
+        margin: 40px 5%;
     }
 
     /** resets **/
@@ -212,8 +208,7 @@ hr {
 
     .hero-image-desktop {
         display: block;
-        max-height: 400px;
-        /* width: 608px;  */
+        max-height: 500px;
     }
 
     .hamburger {
@@ -237,39 +232,45 @@ hr {
 
     .position-container {
         display: grid;
-        grid-template-columns:  1fr 1fr 1fr;
-        grid-template-rows:     1fr 1fr 1fr;
-        grid-template-areas:" hero hero new "
-                            " hero hero new "
-                            " top  top  top ";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 158px;
+        grid-template-areas: " hero hero new "
+            " hero hero new "
+            " top  top  top ";
     }
 
     .hero-section {
         grid-area: hero;
         display: grid;
-        grid-template-columns:  1fr  1fr;
-        grid-template-rows:     minmax(300px, 1fr) 90px  auto;
-        grid-template-areas:    " img    img "
-                                " title  text"
-                                " title  btn "
-    } 
-        .hero-image {
-            grid-area: img ;
-        }
-        .hero-title {
-            grid-area: title ;
-            font-size: 3.3rem;
-            line-height: 3.3rem;
-            max-width: 400px;
-        }
-        .hero-text {
-            grid-area: text ;
-            align-self: center;
-        }
-        .hero-button {
-            grid-area: btn ;
-            align-self:self-end;
-        }
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: minmax(300px, 1fr) 90px auto;
+        grid-template-areas: " img    img "
+            " title  text"
+            " title  btn "
+    }
+
+    .hero-image {
+        grid-area: img;
+        align-self: stretch;
+    }
+
+    .hero-title {
+        grid-area: title;
+        font-size: 3.3rem;
+        line-height: 3.3rem;
+        max-width: 400px;
+    }
+
+    .hero-text {
+        grid-area: text;
+        /* align-self: center; */
+        width: 100%;
+    }
+
+    .hero-button {
+        grid-area: btn;
+        align-self: self-end;
+    }
 
     .latest-posts-section {
         grid-area: new;
@@ -281,14 +282,35 @@ hr {
         flex-direction: row;
     }
 
+    .sticky-post {
+        grid-template-columns: 100px minmax(120px, 398px);
+        grid-template-rows: 33.33% 33.33% 33.33%;
+    }
+
+    .sticky-post-number {
+        align-self: end;
+    }
+
+    .sticky-post-title {
+        font-size: clamp(var(--fs-p), 1.2rem, 2.5rem);
+        line-height: 3em;
+        /* eliminates line wrapping on clamp */
+        align-self: center;
+    }
+
+    .clamp {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+
+    .sticky-post-text {
+        overflow: hidden;
+    }
 
 }
-
-
-
-
-
-
 
 
 .attribution {
