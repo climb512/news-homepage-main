@@ -23,7 +23,9 @@
 -- :has()
 -- ::before, ::after, clamp()
 
-- Building the mobile menu
+- Building the mobile menu - no JS
+-- General framework of my menu adapted from Kevin Powells video:
+-- https://www.youtube.com/watch?v=8QKOaTYvYUA&t=205s
 -- Method for changing menu icons 
 -- https://www.youtube.com/watch?v=dAIVbLrAb_U
 
