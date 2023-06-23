@@ -15,8 +15,18 @@
 
 ### What I learned
 
-Working with Flex and Grid
-Working with CSS3 selectors and pseudo-classes
+- Working with Grid and Flex combined
+-- Grid-template-areas
+-- https://css-tricks.com/almanac/properties/g/grid-template-areas/
+
+- Working with CSS3 selectors and pseudo-classes
+-- :has()
+-- ::before, ::after, clamp()
+
+- Building the mobile menu
+-- Method for changing menu icons 
+-- https://www.youtube.com/watch?v=dAIVbLrAb_U
+
 
 ## Author
 
