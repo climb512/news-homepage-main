@@ -4,7 +4,7 @@
 
 ### Screenshot
 
-
+![Frontend-Mentor-News-homepage](https://github.com/climb512/news-homepage-main/assets/19371146/a71e2185-2354-45c4-ae02-12d7e3341cfd)
 
 ### Built with
 
