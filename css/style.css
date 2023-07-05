@@ -20,16 +20,8 @@ body {
     background-color: var(--clr-bg);
 }
 
-/* body:has(.nav-toggle:not(:checked)) {
-    background-color: var(--clr-bg);
-} */
-
 body:has(.nav-toggle:checked) {
     background: var(--clr-overlay);
-	/* width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0; */
 }
 
 .position-container {
